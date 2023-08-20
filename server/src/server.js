@@ -23,5 +23,17 @@ app.get('/', (req, res) => {
 
 // TEST ROUTE.
 app.get('/test', (req, res) => {
-    res.status(200).json({ message: "Yes test API is working." })
+    res.status(200).json({ message: "Yes GET API is working." })
+});
+
+app.post('/test', (req, res) => {
+    res.status(200).json({ message: "Yes POST API is working." })
+});
+
+app.put('/test', (req, res) => {
+    res.status(200).json({ message: "Yes PUT API is working." })
+});
+
+app.delete('/test', (req, res) => {
+    res.status(200).json({ message: "Yes DELETE API is working." })
 });
