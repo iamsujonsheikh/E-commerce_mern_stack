@@ -1,8 +1,13 @@
 const express = require('express');
 const app = express();
+const morgan = require('morgan');
+
 
 // APPLICATION PORT.
 const PORT = 3000;
+
+// USE MORGAN.
+app.use(morgan("dev"));
 
 // APPLICATION LISTEN.
 app.listen(PORT, () => {
