@@ -1,10 +1,7 @@
-const users = require("../models/userModel");
-
 const getUsers = (req, res, next) => {
     try {
         res.status(200).json({
-            message: "Yes here is all users.",
-            users: users
+            message: "Yes here is all users."
         })
     } catch (error) {
         next(error);

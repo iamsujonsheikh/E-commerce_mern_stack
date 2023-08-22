@@ -12,3 +12,6 @@
 10. How secure API. -> xss-clean, express-rate-limit.
 11. Environment variable & gitignore. (https://github.com/github/gitignore/blob/main/Node.gitignore).
 12. MVC architecture.
+13. Connect to mongoDB database.
+14. Schema & model for user.
+15. Create seed route for testing.
