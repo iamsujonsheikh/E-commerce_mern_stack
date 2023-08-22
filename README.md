@@ -1,3 +1,7 @@
+# E-commerce mern application.
+
+1. Plan.
+2. Environment setup.
 3. Create express server -> express.
 4. HTTP request and response.
 5. Install nodemon & morgan pagake.
