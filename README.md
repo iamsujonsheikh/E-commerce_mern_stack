@@ -10,3 +10,4 @@
 8. Express error handle middleware.
 9. How to handle HTTP errors. -> http-errors.
 10. How secure API. -> xss-clean, express-rate-limit.
+11. Environment variable & gitignore. (https://github.com/github/gitignore/blob/main/Node.gitignore)
