@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const createError = require('http-errors');
 const xssClean = require('xss-clean');
 const rateLimit = require('express-rate-limit');
+const userRouter = require('./routers/userRouter');
 
 const limiter = rateLimit({
     windowMs: 1 * 60 * 1000, // 1 minute
@@ -20,21 +21,16 @@ app.use(morgan("dev"));
 app.use(xssClean());
 app.use(limiter);
 
+// APPLICATION ROUTER.
+app.use("/api/users", userRouter);
+
 
 // --------------------ROUTE---------------------
 
-// HOME ROUTE.
-app.get('/', (req, res) => {
-    res.send('Wellcome to the server.')
-});
 
 // TEST ROUTE.
 app.get('/test', limiter, (req, res) => {
     res.status(200).json({ message: "Yes GET API is working." })
-});
-
-app.get('/api/user', (req, res) => {
-    res.send("I am sujon from user profile.")
 });
 
 // CLIENT ERROR HANDLE.
