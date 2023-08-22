@@ -6,10 +6,25 @@ const morgan = require('morgan');
 // APPLICATION PORT.
 const PORT = 3000;
 
+// PARSE.
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// MIDDLEWAR.
+// const isLogedIn = (req, res, next) => {
+//     const isLogedIn = true;
+//     if (isLogedIn) {
+//         req.body.id = 101;
+//         next();
+//     } else {
+//         res.status(401).send("Sorry please login !");
+//     }
+// };
+
 // USE MORGAN.
 app.use(morgan("dev"));
 
-// APPLICATION LISTEN.
+// APPLICATION LISTEN & CALL BACK SOMETHING.
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost${PORT}`)
 });
@@ -26,14 +41,12 @@ app.get('/test', (req, res) => {
     res.status(200).json({ message: "Yes GET API is working." })
 });
 
-app.post('/test', (req, res) => {
-    res.status(200).json({ message: "Yes POST API is working." })
+app.get('/api/user', (req, res) => {
+    res.send("I am sujon from user profile.")
+    console.log(req.body.id);
 });
 
-app.put('/test', (req, res) => {
-    res.status(200).json({ message: "Yes PUT API is working." })
-});
-
-app.delete('/test', (req, res) => {
-    res.status(200).json({ message: "Yes DELETE API is working." })
+// CLIENT ERROR HANDLE.
+app.use((req, res, next) => {
+    res.status(404).send(` Opps this route not available.`)
 });
