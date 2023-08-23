@@ -1,16 +1,18 @@
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 const { mongodbUrl } = require('../secret');
+dotenv.config();
 
-const connectDatabase = async (options = {}) => {
+const connectToDB = async (options = {}) => {
     try {
         await mongoose.connect(mongodbUrl, options);
-        console.log("Database is connected succesfull.");
+        console.log("😎 Successful connect Database.");
 
-        mongoose.Connection.on("error", () => {
-            console.error("Databse connection error: ", error)
+        mongoose.connection.on('error', () => {
+            console.error("DB connection error", error);
         })
     } catch (error) {
-        console.error("Cannot connection DB: ", error.toString());
+        console.error("🔥Couldn,t connect to DB", error.toStringe());
     }
-}
-module.exports = connectDatabase;
+};
+module.exports = connectToDB;
